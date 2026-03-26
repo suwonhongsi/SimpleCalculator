@@ -412,9 +412,11 @@
             this.Controls.Add(this.TextBox_Output);
             this.Controls.Add(this.TextBox_Input);
             this.Controls.Add(this.text_title);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
