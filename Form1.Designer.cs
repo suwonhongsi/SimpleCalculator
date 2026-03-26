@@ -62,8 +62,8 @@
             this.text_title.BackColor = System.Drawing.SystemColors.Menu;
             this.text_title.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.text_title.Font = new System.Drawing.Font("맑은 고딕", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.text_title.ForeColor = System.Drawing.Color.Blue;
-            this.text_title.Location = new System.Drawing.Point(13, 16);
+            this.text_title.ForeColor = System.Drawing.Color.Green;
+            this.text_title.Location = new System.Drawing.Point(12, 12);
             this.text_title.Name = "text_title";
             this.text_title.Size = new System.Drawing.Size(380, 50);
             this.text_title.TabIndex = 0;
@@ -72,19 +72,21 @@
             // 
             // TextBox_Input
             // 
-            this.TextBox_Input.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TextBox_Input.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox_Input.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TextBox_Input.Location = new System.Drawing.Point(62, 78);
             this.TextBox_Input.Name = "TextBox_Input";
-            this.TextBox_Input.Size = new System.Drawing.Size(285, 33);
+            this.TextBox_Input.Size = new System.Drawing.Size(285, 28);
             this.TextBox_Input.TabIndex = 1;
             this.TextBox_Input.TextChanged += new System.EventHandler(this.TextBox_Input_TextChanged);
             // 
             // TextBox_Output
             // 
-            this.TextBox_Output.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.TextBox_Output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox_Output.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.TextBox_Output.Location = new System.Drawing.Point(62, 118);
             this.TextBox_Output.Name = "TextBox_Output";
-            this.TextBox_Output.Size = new System.Drawing.Size(285, 33);
+            this.TextBox_Output.Size = new System.Drawing.Size(285, 28);
             this.TextBox_Output.TabIndex = 2;
             this.TextBox_Output.TextChanged += new System.EventHandler(this.TextBox_Output_TextChanged);
             // 
@@ -381,6 +383,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(425, 465);
             this.Controls.Add(this.split_Button);
             this.Controls.Add(this.del_Button);
