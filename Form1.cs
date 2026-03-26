@@ -16,5 +16,30 @@ namespace SimpleCalculator
         {
             InitializeComponent();
         }
+
+        private void text_title_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox_Output_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox_Input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Five_Button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
