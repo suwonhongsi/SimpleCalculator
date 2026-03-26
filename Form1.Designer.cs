@@ -55,6 +55,8 @@
             this.Square_Button = new System.Windows.Forms.Button();
             this.Reciprocal_Button = new System.Windows.Forms.Button();
             this.Sqrt_Button = new System.Windows.Forms.Button();
+            this.Left_Button = new System.Windows.Forms.Button();
+            this.Right_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // text_title
@@ -380,6 +382,30 @@
             this.Sqrt_Button.UseVisualStyleBackColor = true;
             this.Sqrt_Button.Click += new System.EventHandler(this.Sqrt_Button_Click);
             // 
+            // Left_Button
+            // 
+            this.Left_Button.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Left_Button.ForeColor = System.Drawing.Color.Black;
+            this.Left_Button.Location = new System.Drawing.Point(545, 223);
+            this.Left_Button.Name = "Left_Button";
+            this.Left_Button.Size = new System.Drawing.Size(88, 65);
+            this.Left_Button.TabIndex = 3;
+            this.Left_Button.Text = "(";
+            this.Left_Button.UseVisualStyleBackColor = true;
+            this.Left_Button.Click += new System.EventHandler(this.Left_Button_Click);
+            // 
+            // Right_Button
+            // 
+            this.Right_Button.Font = new System.Drawing.Font("맑은 고딕", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Right_Button.ForeColor = System.Drawing.Color.Black;
+            this.Right_Button.Location = new System.Drawing.Point(545, 294);
+            this.Right_Button.Name = "Right_Button";
+            this.Right_Button.Size = new System.Drawing.Size(88, 65);
+            this.Right_Button.TabIndex = 3;
+            this.Right_Button.Text = ")";
+            this.Right_Button.UseVisualStyleBackColor = true;
+            this.Right_Button.Click += new System.EventHandler(this.Right_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -404,6 +430,8 @@
             this.Controls.Add(this.PM_Button);
             this.Controls.Add(this.One_Button);
             this.Controls.Add(this.Four_Button);
+            this.Controls.Add(this.Right_Button);
+            this.Controls.Add(this.Left_Button);
             this.Controls.Add(this.Sqrt_Button);
             this.Controls.Add(this.Reciprocal_Button);
             this.Controls.Add(this.Square_Button);
@@ -452,6 +480,8 @@
         private System.Windows.Forms.Button Square_Button;
         private System.Windows.Forms.Button Reciprocal_Button;
         private System.Windows.Forms.Button Sqrt_Button;
+        private System.Windows.Forms.Button Left_Button;
+        private System.Windows.Forms.Button Right_Button;
     }
 }
 

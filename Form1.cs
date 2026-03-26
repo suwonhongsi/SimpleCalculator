@@ -36,7 +36,7 @@ namespace SimpleCalculator
         private void UpdateCurrentOutput()
         {
             string text = TextBox_Input.Text;
-            string[] parts = text.Split(new[] { " + ", " - ", " × ", " ÷ " }, StringSplitOptions.None);
+            string[] parts = text.Split(new[] { " + ", " - ", " × ", " ÷ ", " ( ", " ) " }, StringSplitOptions.None);
             if (parts.Length > 0)
             {
                 TextBox_Output.Text = parts[parts.Length - 1].Trim();
@@ -78,7 +78,7 @@ namespace SimpleCalculator
             }
             else if (!string.IsNullOrEmpty(TextBox_Input.Text))
             {
-                if (TextBox_Input.Text.EndsWith(" "))
+                if (TextBox_Input.Text.EndsWith(" ") && !TextBox_Input.Text.EndsWith("( ") && !TextBox_Input.Text.EndsWith(") "))
                 {
                     TextBox_Input.Text = TextBox_Input.Text.Substring(0, TextBox_Input.Text.Length - 3) + op;
                 }
@@ -89,10 +89,19 @@ namespace SimpleCalculator
             }
         }
 
+        private void Left_Button_Click(object sender, EventArgs e) => AddParenthesis(" ( ");
+        private void Right_Button_Click(object sender, EventArgs e) => AddParenthesis(" ) ");
+
+        private void AddParenthesis(string p)
+        {
+            if (TextBox_Input.Text.Contains("=")) { TextBox_Input.Clear(); TextBox_Output.Clear(); }
+            TextBox_Input.Text += p;
+            UpdateCurrentOutput();
+        }
+
         private void Result_Button_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TextBox_Input.Text) || TextBox_Input.Text.Contains("=")) return;
-            if (TextBox_Input.Text.EndsWith(" ")) return;
 
             try
             {
@@ -152,7 +161,7 @@ namespace SimpleCalculator
         private void CE_Button_Click(object sender, EventArgs e)
         {
             if (TextBox_Input.Text.Contains("=")) { C_Button_Click(sender, e); return; }
-            int lastSpace = TextBox_Input.Text.LastIndexOf(' ');
+            int lastSpace = TextBox_Input.Text.TrimEnd().LastIndexOf(' ');
             if (lastSpace != -1) TextBox_Input.Text = TextBox_Input.Text.Substring(0, lastSpace + 1);
             else TextBox_Input.Clear();
             TextBox_Output.Clear();
@@ -188,6 +197,8 @@ namespace SimpleCalculator
             }
             switch (e.KeyCode)
             {
+                case Keys.D9: if (e.Shift) { Left_Button_Click(null, null); e.Handled = true; e.SuppressKeyPress = true; } break;
+                case Keys.D0: if (e.Shift) { Right_Button_Click(null, null); e.Handled = true; e.SuppressKeyPress = true; } break;
                 case Keys.Add: Plus_Button_Click(null, null); e.Handled = true; break;
                 case Keys.Oemplus: if (e.Shift) Plus_Button_Click(null, null); else Result_Button_Click(null, null); e.Handled = true; break;
                 case Keys.Subtract: case Keys.OemMinus: Minus_Button_Click(null, null); e.Handled = true; break;
