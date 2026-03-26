@@ -77,6 +77,30 @@ namespace SimpleCalculator
             TextBox_Input.Text += "9";
         }
 
+        private void Dot_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text.Contains("=")) { TextBox_Input.Clear(); TextBox_Output.Clear(); }
+
+            string currentText = TextBox_Input.Text;
+            string op = GetCurrentOperator();
+
+            if (string.IsNullOrEmpty(op))
+            {
+                if (!currentText.Contains("."))
+                {
+                    TextBox_Input.Text += (currentText == "" ? "0." : ".");
+                }
+            }
+            else
+            {
+                string[] parts = currentText.Split(new string[] { op }, StringSplitOptions.None);
+                if (parts.Length == 2 && !parts[1].Contains("."))
+                {
+                    TextBox_Input.Text += (parts[1] == "" ? "0." : ".");
+                }
+            }
+        }
+
         private void Plus_Button_Click(object sender, EventArgs e)
         {
             if (TextBox_Input.Text != "" && !HasOperator())
@@ -111,27 +135,30 @@ namespace SimpleCalculator
 
         private bool HasOperator()
         {
-            return TextBox_Input.Text.Contains(" + ") || TextBox_Input.Text.Contains(" - ") ||
-                   TextBox_Input.Text.Contains(" × ") || TextBox_Input.Text.Contains(" ÷ ");
+            return !string.IsNullOrEmpty(GetCurrentOperator());
+        }
+
+        private string GetCurrentOperator()
+        {
+            if (TextBox_Input.Text.Contains(" + ")) return " + ";
+            if (TextBox_Input.Text.Contains(" - ")) return " - ";
+            if (TextBox_Input.Text.Contains(" × ")) return " × ";
+            if (TextBox_Input.Text.Contains(" ÷ ")) return " ÷ ";
+            return null;
         }
 
         private void Result_Button_Click(object sender, EventArgs e)
         {
-            if (TextBox_Input.Text.Contains("=") || !HasOperator()) return;
-
-            string op = "";
-            if (TextBox_Input.Text.Contains(" + ")) op = " + ";
-            else if (TextBox_Input.Text.Contains(" - ")) op = " - ";
-            else if (TextBox_Input.Text.Contains(" × ")) op = " × ";
-            else if (TextBox_Input.Text.Contains(" ÷ ")) op = " ÷ ";
+            string op = GetCurrentOperator();
+            if (TextBox_Input.Text.Contains("=") || op == null) return;
 
             string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
 
             if (parts.Length == 2 && parts[1] != "")
             {
-                int n1 = int.Parse(parts[0]);
-                int n2 = int.Parse(parts[1]);
-                int result = 0;
+                double n1 = double.Parse(parts[0]);
+                double n2 = double.Parse(parts[1]);
+                double result = 0;
 
                 if (op == " + ") result = n1 + n2;
                 else if (op == " - ") result = n1 - n2;

@@ -208,7 +208,7 @@
             this.Six_Button.TabIndex = 3;
             this.Six_Button.Text = "6";
             this.Six_Button.UseVisualStyleBackColor = true;
-            this.Six_Button.Click += new System.EventHandler(this.Five_Button_Click);
+            this.Six_Button.Click += new System.EventHandler(this.Six_Button_Click);
             // 
             // Minus_Button
             // 
@@ -220,7 +220,7 @@
             this.Minus_Button.TabIndex = 3;
             this.Minus_Button.Text = "-";
             this.Minus_Button.UseVisualStyleBackColor = true;
-            this.Minus_Button.Click += new System.EventHandler(this.Five_Button_Click);
+            this.Minus_Button.Click += new System.EventHandler(this.Minus_Button_Click);
             // 
             // One_Button
             // 
@@ -305,6 +305,7 @@
             this.Dot_Button.TabIndex = 3;
             this.Dot_Button.Text = ".";
             this.Dot_Button.UseVisualStyleBackColor = false;
+            this.Dot_Button.Click += new System.EventHandler(this.Dot_Button_Click);
             // 
             // Result_Button
             // 
