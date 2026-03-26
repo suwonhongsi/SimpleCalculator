@@ -17,6 +17,7 @@ namespace SimpleCalculator
             InitializeComponent();
             this.KeyPreview = true;
             TextBox_Input.ReadOnly = true;
+            TextBox_Output.ReadOnly = true;
             TextBox_Input.BackColor = Color.White;
             TextBox_Output.BackColor = Color.White;
         }
@@ -29,6 +30,20 @@ namespace SimpleCalculator
                 TextBox_Output.Clear();
             }
             TextBox_Input.Text += num;
+
+            string op = GetCurrentOperator();
+            if (op == null)
+            {
+                TextBox_Output.Text = TextBox_Input.Text;
+            }
+            else
+            {
+                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                if (parts.Length == 2)
+                {
+                    TextBox_Output.Text = parts[1].Trim();
+                }
+            }
         }
 
         private void Zero_Button_Click(object sender, EventArgs e) => AppendNumber("0");
@@ -45,58 +60,31 @@ namespace SimpleCalculator
         private void Dot_Button_Click(object sender, EventArgs e)
         {
             if (TextBox_Input.Text.Contains("=")) { TextBox_Input.Clear(); TextBox_Output.Clear(); }
-            string op = GetCurrentOperator();
-            if (string.IsNullOrEmpty(op))
+
+            if (!TextBox_Output.Text.Contains("."))
             {
-                if (!TextBox_Input.Text.Contains("."))
-                    TextBox_Input.Text += (TextBox_Input.Text == "" ? "0." : ".");
-            }
-            else
-            {
-                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
-                if (parts.Length == 2 && !parts[1].Contains("."))
-                    TextBox_Input.Text += (parts[1] == "" ? "0." : ".");
+                string addDot = (TextBox_Output.Text == "" || TextBox_Output.Text == "0") ? "0." : ".";
+                TextBox_Input.Text += addDot;
+                TextBox_Output.Text += addDot;
             }
         }
 
-        private void Plus_Button_Click(object sender, EventArgs e)
-        {
-            if (TextBox_Input.Text.Contains("="))
-            {
-                TextBox_Input.Text = TextBox_Output.Text + " + ";
-                TextBox_Output.Clear();
-            }
-            else if (TextBox_Input.Text != "" && !HasOperator()) TextBox_Input.Text += " + ";
-        }
+        private void Plus_Button_Click(object sender, EventArgs e) => PrepareOperator(" + ");
+        private void Minus_Button_Click(object sender, EventArgs e) => PrepareOperator(" - ");
+        private void Times_Button_Click(object sender, EventArgs e) => PrepareOperator(" × ");
+        private void split_Button_Click(object sender, EventArgs e) => PrepareOperator(" ÷ ");
 
-        private void Minus_Button_Click(object sender, EventArgs e)
+        private void PrepareOperator(string op)
         {
             if (TextBox_Input.Text.Contains("="))
             {
-                TextBox_Input.Text = TextBox_Output.Text + " - ";
-                TextBox_Output.Clear();
+                TextBox_Input.Text = TextBox_Output.Text + op;
+                TextBox_Output.Text = TextBox_Output.Text;
             }
-            else if (TextBox_Input.Text != "" && !HasOperator()) TextBox_Input.Text += " - ";
-        }
-
-        private void Times_Button_Click(object sender, EventArgs e)
-        {
-            if (TextBox_Input.Text.Contains("="))
+            else if (TextBox_Input.Text != "" && !HasOperator())
             {
-                TextBox_Input.Text = TextBox_Output.Text + " × ";
-                TextBox_Output.Clear();
+                TextBox_Input.Text += op;
             }
-            else if (TextBox_Input.Text != "" && !HasOperator()) TextBox_Input.Text += " × ";
-        }
-
-        private void split_Button_Click(object sender, EventArgs e)
-        {
-            if (TextBox_Input.Text.Contains("="))
-            {
-                TextBox_Input.Text = TextBox_Output.Text + " ÷ ";
-                TextBox_Output.Clear();
-            }
-            else if (TextBox_Input.Text != "" && !HasOperator()) TextBox_Input.Text += " ÷ ";
         }
 
         private bool HasOperator() => !string.IsNullOrEmpty(GetCurrentOperator());
@@ -141,7 +129,12 @@ namespace SimpleCalculator
         {
             if (TextBox_Input.Text.Contains("=") || TextBox_Input.Text == "") return;
             string op = GetCurrentOperator();
-            if (op == null) TextBox_Input.Text = (double.Parse(TextBox_Input.Text) / 100.0).ToString();
+            if (op == null)
+            {
+                double res = double.Parse(TextBox_Input.Text) / 100.0;
+                TextBox_Input.Text = res.ToString();
+                TextBox_Output.Text = res.ToString();
+            }
             else
             {
                 string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
@@ -151,6 +144,7 @@ namespace SimpleCalculator
                     double n2 = double.Parse(parts[1]);
                     double res = n1 * (n2 / 100.0);
                     TextBox_Input.Text = parts[0] + op + res.ToString();
+                    TextBox_Output.Text = res.ToString();
                 }
             }
         }
@@ -163,6 +157,7 @@ namespace SimpleCalculator
             {
                 double res = operation(double.Parse(TextBox_Input.Text));
                 TextBox_Input.Text = res.ToString();
+                TextBox_Output.Text = res.ToString();
             }
             else
             {
@@ -171,6 +166,7 @@ namespace SimpleCalculator
                 {
                     double res = operation(double.Parse(parts[1]));
                     TextBox_Input.Text = parts[0] + op + res.ToString();
+                    TextBox_Output.Text = res.ToString();
                 }
             }
         }
@@ -183,6 +179,7 @@ namespace SimpleCalculator
             {
                 double val = double.Parse(TextBox_Input.Text) * -1;
                 TextBox_Input.Text = val.ToString();
+                TextBox_Output.Text = val.ToString();
             }
             else if (op != null)
             {
@@ -191,6 +188,7 @@ namespace SimpleCalculator
                 {
                     double val = double.Parse(parts[1]) * -1;
                     TextBox_Input.Text = parts[0] + op + val.ToString();
+                    TextBox_Output.Text = val.ToString();
                 }
             }
         }
@@ -201,8 +199,12 @@ namespace SimpleCalculator
         {
             if (TextBox_Input.Text.Contains("=")) { C_Button_Click(sender, e); return; }
             string op = GetCurrentOperator();
-            if (op == null) TextBox_Input.Clear();
-            else TextBox_Input.Text = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None)[0] + op;
+            if (op == null) { TextBox_Input.Clear(); TextBox_Output.Clear(); }
+            else
+            {
+                TextBox_Input.Text = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None)[0] + op;
+                TextBox_Output.Clear();
+            }
         }
 
         private void del_Button_Click(object sender, EventArgs e)
@@ -213,6 +215,14 @@ namespace SimpleCalculator
                 string currentText = TextBox_Input.Text;
                 if (currentText.EndsWith(" ")) TextBox_Input.Text = currentText.Substring(0, currentText.Length - 3);
                 else TextBox_Input.Text = currentText.Substring(0, currentText.Length - 1);
+
+                string op = GetCurrentOperator();
+                if (op == null) TextBox_Output.Text = TextBox_Input.Text;
+                else
+                {
+                    string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                    TextBox_Output.Text = (parts.Length == 2) ? parts[1] : "";
+                }
             }
         }
 
