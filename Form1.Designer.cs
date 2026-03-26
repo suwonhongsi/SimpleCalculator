@@ -124,6 +124,7 @@
             this.split_Button.TabIndex = 3;
             this.split_Button.Text = "÷";
             this.split_Button.UseVisualStyleBackColor = true;
+            this.split_Button.Click += new System.EventHandler(this.split_Button_Click);
             // 
             // Seven_Button
             // 
@@ -171,6 +172,7 @@
             this.Times_Button.TabIndex = 3;
             this.Times_Button.Text = "X";
             this.Times_Button.UseVisualStyleBackColor = true;
+            this.Times_Button.Click += new System.EventHandler(this.Times_Button_Click);
             // 
             // Four_Button
             // 

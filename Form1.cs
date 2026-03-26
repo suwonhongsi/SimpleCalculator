@@ -79,29 +79,71 @@ namespace SimpleCalculator
 
         private void Plus_Button_Click(object sender, EventArgs e)
         {
-            if (TextBox_Input.Text != "" && !TextBox_Input.Text.Contains("+"))
+            if (TextBox_Input.Text != "" && !HasOperator())
             {
                 TextBox_Input.Text += " + ";
             }
         }
 
+        private void Minus_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text != "" && !HasOperator())
+            {
+                TextBox_Input.Text += " - ";
+            }
+        }
+
+        private void Times_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text != "" && !HasOperator())
+            {
+                TextBox_Input.Text += " × ";
+            }
+        }
+
+        private void split_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text != "" && !HasOperator())
+            {
+                TextBox_Input.Text += " ÷ ";
+            }
+        }
+
+        private bool HasOperator()
+        {
+            return TextBox_Input.Text.Contains(" + ") || TextBox_Input.Text.Contains(" - ") ||
+                   TextBox_Input.Text.Contains(" × ") || TextBox_Input.Text.Contains(" ÷ ");
+        }
+
         private void Result_Button_Click(object sender, EventArgs e)
         {
-            if (TextBox_Input.Text.Contains("=") || !TextBox_Input.Text.Contains(" + "))
-            {
-                return;
-            }
+            if (TextBox_Input.Text.Contains("=") || !HasOperator()) return;
 
-            string[] parts = TextBox_Input.Text.Split(new string[] { " + " }, StringSplitOptions.None);
+            string op = "";
+            if (TextBox_Input.Text.Contains(" + ")) op = " + ";
+            else if (TextBox_Input.Text.Contains(" - ")) op = " - ";
+            else if (TextBox_Input.Text.Contains(" × ")) op = " × ";
+            else if (TextBox_Input.Text.Contains(" ÷ ")) op = " ÷ ";
+
+            string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
 
             if (parts.Length == 2 && parts[1] != "")
             {
                 int n1 = int.Parse(parts[0]);
                 int n2 = int.Parse(parts[1]);
-                int sum = n1 + n2;
+                int result = 0;
 
-                TextBox_Output.Text = sum.ToString();
-                TextBox_Input.Text += " = " + sum.ToString();
+                if (op == " + ") result = n1 + n2;
+                else if (op == " - ") result = n1 - n2;
+                else if (op == " × ") result = n1 * n2;
+                else if (op == " ÷ ")
+                {
+                    if (n2 == 0) { TextBox_Output.Text = "Error"; return; }
+                    result = n1 / n2;
+                }
+
+                TextBox_Output.Text = result.ToString();
+                TextBox_Input.Text += " = " + result.ToString();
             }
         }
 
