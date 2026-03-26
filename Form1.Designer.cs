@@ -75,9 +75,9 @@
             // 
             this.TextBox_Input.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox_Input.Font = new System.Drawing.Font("맑은 고딕", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TextBox_Input.Location = new System.Drawing.Point(111, 88);
+            this.TextBox_Input.Location = new System.Drawing.Point(12, 88);
             this.TextBox_Input.Name = "TextBox_Input";
-            this.TextBox_Input.Size = new System.Drawing.Size(411, 47);
+            this.TextBox_Input.Size = new System.Drawing.Size(638, 47);
             this.TextBox_Input.TabIndex = 1;
             this.TextBox_Input.TextChanged += new System.EventHandler(this.TextBox_Input_TextChanged);
             // 
@@ -85,9 +85,9 @@
             // 
             this.TextBox_Output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBox_Output.Font = new System.Drawing.Font("맑은 고딕", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TextBox_Output.Location = new System.Drawing.Point(111, 156);
+            this.TextBox_Output.Location = new System.Drawing.Point(12, 156);
             this.TextBox_Output.Name = "TextBox_Output";
-            this.TextBox_Output.Size = new System.Drawing.Size(411, 47);
+            this.TextBox_Output.Size = new System.Drawing.Size(638, 47);
             this.TextBox_Output.TabIndex = 2;
             this.TextBox_Output.TextChanged += new System.EventHandler(this.TextBox_Output_TextChanged);
             // 
