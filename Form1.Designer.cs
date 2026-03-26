@@ -51,6 +51,10 @@
             this.Zero_Button = new System.Windows.Forms.Button();
             this.Dot_Button = new System.Windows.Forms.Button();
             this.Result_Button = new System.Windows.Forms.Button();
+            this.Percent_Button = new System.Windows.Forms.Button();
+            this.Square_Button = new System.Windows.Forms.Button();
+            this.Reciprocal_Button = new System.Windows.Forms.Button();
+            this.Sqrt_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // text_title
@@ -59,7 +63,7 @@
             this.text_title.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.text_title.Font = new System.Drawing.Font("맑은 고딕", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.text_title.ForeColor = System.Drawing.Color.Blue;
-            this.text_title.Location = new System.Drawing.Point(25, 25);
+            this.text_title.Location = new System.Drawing.Point(13, 16);
             this.text_title.Name = "text_title";
             this.text_title.Size = new System.Drawing.Size(380, 50);
             this.text_title.TabIndex = 0;
@@ -69,7 +73,7 @@
             // TextBox_Input
             // 
             this.TextBox_Input.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TextBox_Input.Location = new System.Drawing.Point(59, 95);
+            this.TextBox_Input.Location = new System.Drawing.Point(62, 78);
             this.TextBox_Input.Name = "TextBox_Input";
             this.TextBox_Input.Size = new System.Drawing.Size(285, 33);
             this.TextBox_Input.TabIndex = 1;
@@ -78,7 +82,7 @@
             // TextBox_Output
             // 
             this.TextBox_Output.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TextBox_Output.Location = new System.Drawing.Point(59, 140);
+            this.TextBox_Output.Location = new System.Drawing.Point(62, 118);
             this.TextBox_Output.Name = "TextBox_Output";
             this.TextBox_Output.Size = new System.Drawing.Size(285, 33);
             this.TextBox_Output.TabIndex = 2;
@@ -87,7 +91,7 @@
             // CE_Button
             // 
             this.CE_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.CE_Button.Location = new System.Drawing.Point(62, 194);
+            this.CE_Button.Location = new System.Drawing.Point(62, 160);
             this.CE_Button.Name = "CE_Button";
             this.CE_Button.Size = new System.Drawing.Size(66, 43);
             this.CE_Button.TabIndex = 3;
@@ -98,7 +102,7 @@
             // C_Button
             // 
             this.C_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.C_Button.Location = new System.Drawing.Point(134, 194);
+            this.C_Button.Location = new System.Drawing.Point(134, 160);
             this.C_Button.Name = "C_Button";
             this.C_Button.Size = new System.Drawing.Size(66, 43);
             this.C_Button.TabIndex = 3;
@@ -109,7 +113,7 @@
             // del_Button
             // 
             this.del_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.del_Button.Location = new System.Drawing.Point(206, 194);
+            this.del_Button.Location = new System.Drawing.Point(206, 160);
             this.del_Button.Name = "del_Button";
             this.del_Button.Size = new System.Drawing.Size(66, 43);
             this.del_Button.TabIndex = 3;
@@ -121,7 +125,7 @@
             // 
             this.split_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.split_Button.ForeColor = System.Drawing.Color.Red;
-            this.split_Button.Location = new System.Drawing.Point(278, 194);
+            this.split_Button.Location = new System.Drawing.Point(278, 160);
             this.split_Button.Name = "split_Button";
             this.split_Button.Size = new System.Drawing.Size(66, 43);
             this.split_Button.TabIndex = 3;
@@ -133,7 +137,7 @@
             // 
             this.Seven_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Seven_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Seven_Button.Location = new System.Drawing.Point(62, 243);
+            this.Seven_Button.Location = new System.Drawing.Point(62, 258);
             this.Seven_Button.Name = "Seven_Button";
             this.Seven_Button.Size = new System.Drawing.Size(66, 43);
             this.Seven_Button.TabIndex = 3;
@@ -145,7 +149,7 @@
             // 
             this.Eight_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Eight_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Eight_Button.Location = new System.Drawing.Point(134, 243);
+            this.Eight_Button.Location = new System.Drawing.Point(134, 258);
             this.Eight_Button.Name = "Eight_Button";
             this.Eight_Button.Size = new System.Drawing.Size(66, 43);
             this.Eight_Button.TabIndex = 3;
@@ -157,7 +161,7 @@
             // 
             this.Nine_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Nine_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Nine_Button.Location = new System.Drawing.Point(206, 243);
+            this.Nine_Button.Location = new System.Drawing.Point(206, 258);
             this.Nine_Button.Name = "Nine_Button";
             this.Nine_Button.Size = new System.Drawing.Size(66, 43);
             this.Nine_Button.TabIndex = 3;
@@ -169,7 +173,7 @@
             // 
             this.Times_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Times_Button.ForeColor = System.Drawing.Color.Red;
-            this.Times_Button.Location = new System.Drawing.Point(278, 243);
+            this.Times_Button.Location = new System.Drawing.Point(278, 258);
             this.Times_Button.Name = "Times_Button";
             this.Times_Button.Size = new System.Drawing.Size(66, 43);
             this.Times_Button.TabIndex = 3;
@@ -181,7 +185,7 @@
             // 
             this.Four_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Four_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Four_Button.Location = new System.Drawing.Point(62, 292);
+            this.Four_Button.Location = new System.Drawing.Point(62, 307);
             this.Four_Button.Name = "Four_Button";
             this.Four_Button.Size = new System.Drawing.Size(66, 43);
             this.Four_Button.TabIndex = 3;
@@ -193,7 +197,7 @@
             // 
             this.Five_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Five_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Five_Button.Location = new System.Drawing.Point(134, 292);
+            this.Five_Button.Location = new System.Drawing.Point(134, 307);
             this.Five_Button.Name = "Five_Button";
             this.Five_Button.Size = new System.Drawing.Size(66, 43);
             this.Five_Button.TabIndex = 3;
@@ -205,7 +209,7 @@
             // 
             this.Six_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Six_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Six_Button.Location = new System.Drawing.Point(206, 292);
+            this.Six_Button.Location = new System.Drawing.Point(206, 307);
             this.Six_Button.Name = "Six_Button";
             this.Six_Button.Size = new System.Drawing.Size(66, 43);
             this.Six_Button.TabIndex = 3;
@@ -217,7 +221,7 @@
             // 
             this.Minus_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Minus_Button.ForeColor = System.Drawing.Color.Red;
-            this.Minus_Button.Location = new System.Drawing.Point(278, 292);
+            this.Minus_Button.Location = new System.Drawing.Point(278, 307);
             this.Minus_Button.Name = "Minus_Button";
             this.Minus_Button.Size = new System.Drawing.Size(66, 43);
             this.Minus_Button.TabIndex = 3;
@@ -229,7 +233,7 @@
             // 
             this.One_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.One_Button.ForeColor = System.Drawing.Color.Blue;
-            this.One_Button.Location = new System.Drawing.Point(62, 341);
+            this.One_Button.Location = new System.Drawing.Point(62, 356);
             this.One_Button.Name = "One_Button";
             this.One_Button.Size = new System.Drawing.Size(66, 43);
             this.One_Button.TabIndex = 3;
@@ -241,7 +245,7 @@
             // 
             this.Two_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Two_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Two_Button.Location = new System.Drawing.Point(134, 341);
+            this.Two_Button.Location = new System.Drawing.Point(134, 356);
             this.Two_Button.Name = "Two_Button";
             this.Two_Button.Size = new System.Drawing.Size(66, 43);
             this.Two_Button.TabIndex = 3;
@@ -253,7 +257,7 @@
             // 
             this.Three_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Three_Button.ForeColor = System.Drawing.Color.Blue;
-            this.Three_Button.Location = new System.Drawing.Point(206, 341);
+            this.Three_Button.Location = new System.Drawing.Point(206, 356);
             this.Three_Button.Name = "Three_Button";
             this.Three_Button.Size = new System.Drawing.Size(66, 43);
             this.Three_Button.TabIndex = 3;
@@ -265,7 +269,7 @@
             // 
             this.Plus_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Plus_Button.ForeColor = System.Drawing.Color.Red;
-            this.Plus_Button.Location = new System.Drawing.Point(278, 341);
+            this.Plus_Button.Location = new System.Drawing.Point(278, 356);
             this.Plus_Button.Name = "Plus_Button";
             this.Plus_Button.Size = new System.Drawing.Size(66, 43);
             this.Plus_Button.TabIndex = 3;
@@ -277,19 +281,20 @@
             // 
             this.PM_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.PM_Button.ForeColor = System.Drawing.Color.Black;
-            this.PM_Button.Location = new System.Drawing.Point(62, 390);
+            this.PM_Button.Location = new System.Drawing.Point(62, 405);
             this.PM_Button.Name = "PM_Button";
             this.PM_Button.Size = new System.Drawing.Size(66, 43);
             this.PM_Button.TabIndex = 3;
             this.PM_Button.Text = "+/-";
             this.PM_Button.UseVisualStyleBackColor = true;
+            this.PM_Button.Click += new System.EventHandler(this.PM_Button_Click);
             // 
             // Zero_Button
             // 
             this.Zero_Button.BackColor = System.Drawing.SystemColors.Window;
             this.Zero_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Zero_Button.ForeColor = System.Drawing.Color.Black;
-            this.Zero_Button.Location = new System.Drawing.Point(134, 390);
+            this.Zero_Button.Location = new System.Drawing.Point(134, 405);
             this.Zero_Button.Name = "Zero_Button";
             this.Zero_Button.Size = new System.Drawing.Size(66, 43);
             this.Zero_Button.TabIndex = 3;
@@ -302,7 +307,7 @@
             this.Dot_Button.BackColor = System.Drawing.SystemColors.Window;
             this.Dot_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Dot_Button.ForeColor = System.Drawing.Color.Black;
-            this.Dot_Button.Location = new System.Drawing.Point(206, 390);
+            this.Dot_Button.Location = new System.Drawing.Point(206, 405);
             this.Dot_Button.Name = "Dot_Button";
             this.Dot_Button.Size = new System.Drawing.Size(66, 43);
             this.Dot_Button.TabIndex = 3;
@@ -315,7 +320,7 @@
             this.Result_Button.BackColor = System.Drawing.SystemColors.Window;
             this.Result_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Result_Button.ForeColor = System.Drawing.Color.Black;
-            this.Result_Button.Location = new System.Drawing.Point(278, 390);
+            this.Result_Button.Location = new System.Drawing.Point(278, 405);
             this.Result_Button.Name = "Result_Button";
             this.Result_Button.Size = new System.Drawing.Size(66, 43);
             this.Result_Button.TabIndex = 3;
@@ -323,11 +328,60 @@
             this.Result_Button.UseVisualStyleBackColor = false;
             this.Result_Button.Click += new System.EventHandler(this.Result_Button_Click);
             // 
+            // Percent_Button
+            // 
+            this.Percent_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Percent_Button.ForeColor = System.Drawing.Color.Black;
+            this.Percent_Button.Location = new System.Drawing.Point(62, 209);
+            this.Percent_Button.Name = "Percent_Button";
+            this.Percent_Button.Size = new System.Drawing.Size(66, 43);
+            this.Percent_Button.TabIndex = 3;
+            this.Percent_Button.Text = "%";
+            this.Percent_Button.UseVisualStyleBackColor = true;
+            this.Percent_Button.Click += new System.EventHandler(this.Percent_Button_Click);
+            // 
+            // Square_Button
+            // 
+            this.Square_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Square_Button.ForeColor = System.Drawing.Color.Black;
+            this.Square_Button.Location = new System.Drawing.Point(134, 209);
+            this.Square_Button.Name = "Square_Button";
+            this.Square_Button.Size = new System.Drawing.Size(66, 43);
+            this.Square_Button.TabIndex = 3;
+            this.Square_Button.Text = "x²";
+            this.Square_Button.UseVisualStyleBackColor = true;
+            this.Square_Button.Click += new System.EventHandler(this.Square_Button_Click);
+            // 
+            // Reciprocal_Button
+            // 
+            this.Reciprocal_Button.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Reciprocal_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Reciprocal_Button.ForeColor = System.Drawing.Color.Black;
+            this.Reciprocal_Button.Location = new System.Drawing.Point(206, 209);
+            this.Reciprocal_Button.Name = "Reciprocal_Button";
+            this.Reciprocal_Button.Size = new System.Drawing.Size(66, 43);
+            this.Reciprocal_Button.TabIndex = 3;
+            this.Reciprocal_Button.Text = "¹/x";
+            this.Reciprocal_Button.UseVisualStyleBackColor = false;
+            this.Reciprocal_Button.Click += new System.EventHandler(this.Reciprocal_Button_Click);
+            // 
+            // Sqrt_Button
+            // 
+            this.Sqrt_Button.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Sqrt_Button.ForeColor = System.Drawing.Color.Black;
+            this.Sqrt_Button.Location = new System.Drawing.Point(278, 209);
+            this.Sqrt_Button.Name = "Sqrt_Button";
+            this.Sqrt_Button.Size = new System.Drawing.Size(66, 43);
+            this.Sqrt_Button.TabIndex = 3;
+            this.Sqrt_Button.Text = "√";
+            this.Sqrt_Button.UseVisualStyleBackColor = true;
+            this.Sqrt_Button.Click += new System.EventHandler(this.Sqrt_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 449);
+            this.ClientSize = new System.Drawing.Size(425, 465);
             this.Controls.Add(this.split_Button);
             this.Controls.Add(this.del_Button);
             this.Controls.Add(this.C_Button);
@@ -346,6 +400,10 @@
             this.Controls.Add(this.PM_Button);
             this.Controls.Add(this.One_Button);
             this.Controls.Add(this.Four_Button);
+            this.Controls.Add(this.Sqrt_Button);
+            this.Controls.Add(this.Reciprocal_Button);
+            this.Controls.Add(this.Square_Button);
+            this.Controls.Add(this.Percent_Button);
             this.Controls.Add(this.Seven_Button);
             this.Controls.Add(this.CE_Button);
             this.Controls.Add(this.TextBox_Output);
@@ -384,6 +442,10 @@
         private System.Windows.Forms.Button Zero_Button;
         private System.Windows.Forms.Button Dot_Button;
         private System.Windows.Forms.Button Result_Button;
+        private System.Windows.Forms.Button Percent_Button;
+        private System.Windows.Forms.Button Square_Button;
+        private System.Windows.Forms.Button Reciprocal_Button;
+        private System.Windows.Forms.Button Sqrt_Button;
     }
 }
 

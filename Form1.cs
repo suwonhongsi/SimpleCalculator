@@ -179,6 +179,65 @@ namespace SimpleCalculator
         private void TextBox_Input_TextChanged(object sender, EventArgs e) { }
         private void Form1_Load(object sender, EventArgs e) { }
 
+        private void Square_Button_Click(object sender, EventArgs e)
+        {
+            ApplySingleOp(val => Math.Pow(val, 2));
+        }
+
+        private void Sqrt_Button_Click(object sender, EventArgs e)
+        {
+            ApplySingleOp(val => Math.Sqrt(val));
+        }
+
+        private void Reciprocal_Button_Click(object sender, EventArgs e)
+        {
+            ApplySingleOp(val => 1 / val);
+        }
+
+        private void Percent_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text.Contains("=") || TextBox_Input.Text == "") return;
+
+            string op = GetCurrentOperator();
+            if (op == null)
+            {
+                double val = double.Parse(TextBox_Input.Text) / 100.0;
+                TextBox_Input.Text = val.ToString();
+            }
+            else
+            {
+                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                if (parts.Length == 2 && parts[1] != "")
+                {
+                    double n1 = double.Parse(parts[0]);
+                    double n2 = double.Parse(parts[1]);
+                    double res = n1 * (n2 / 100.0);
+
+                    TextBox_Input.Text = parts[0] + op + res.ToString();
+                }
+            }
+        }
+
+        private void ApplySingleOp(Func<double, double> operation)
+        {
+            if (TextBox_Input.Text.Contains("=") || TextBox_Input.Text == "") return;
+            string op = GetCurrentOperator();
+            if (op == null)
+            {
+                double res = operation(double.Parse(TextBox_Input.Text));
+                TextBox_Input.Text = res.ToString();
+            }
+            else
+            {
+                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                if (parts.Length == 2 && parts[1] != "")
+                {
+                    double res = operation(double.Parse(parts[1]));
+                    TextBox_Input.Text = parts[0] + op + res.ToString();
+                }
+            }
+        }
+
         private void C_Button_Click(object sender, EventArgs e)
         {
             TextBox_Input.Clear();
@@ -225,6 +284,26 @@ namespace SimpleCalculator
                 else
                 {
                     TextBox_Input.Text = currentText.Substring(0, currentText.Length - 1);
+                }
+            }
+        }
+
+        private void PM_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text.Contains("=")) return;
+            string op = GetCurrentOperator();
+            if (op == null && TextBox_Input.Text != "")
+            {
+                double val = double.Parse(TextBox_Input.Text) * -1;
+                TextBox_Input.Text = val.ToString();
+            }
+            else if (op != null)
+            {
+                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                if (parts.Length == 2 && parts[1] != "")
+                {
+                    double val = double.Parse(parts[1]) * -1;
+                    TextBox_Input.Text = parts[0] + op + val.ToString();
                 }
             }
         }
