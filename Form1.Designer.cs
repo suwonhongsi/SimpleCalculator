@@ -93,6 +93,7 @@
             this.CE_Button.TabIndex = 3;
             this.CE_Button.Text = "CE";
             this.CE_Button.UseVisualStyleBackColor = true;
+            this.CE_Button.Click += new System.EventHandler(this.CE_Button_Click);
             // 
             // C_Button
             // 
@@ -103,6 +104,7 @@
             this.C_Button.TabIndex = 3;
             this.C_Button.Text = "C";
             this.C_Button.UseVisualStyleBackColor = true;
+            this.C_Button.Click += new System.EventHandler(this.C_Button_Click);
             // 
             // del_Button
             // 
@@ -113,6 +115,7 @@
             this.del_Button.TabIndex = 3;
             this.del_Button.Text = "del";
             this.del_Button.UseVisualStyleBackColor = true;
+            this.del_Button.Click += new System.EventHandler(this.del_Button_Click);
             // 
             // split_Button
             // 

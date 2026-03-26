@@ -178,5 +178,60 @@ namespace SimpleCalculator
         private void TextBox_Output_TextChanged(object sender, EventArgs e) { }
         private void TextBox_Input_TextChanged(object sender, EventArgs e) { }
         private void Form1_Load(object sender, EventArgs e) { }
+
+        private void C_Button_Click(object sender, EventArgs e)
+        {
+            TextBox_Input.Clear();
+            TextBox_Output.Clear();
+        }
+
+        // 2. CE 버튼: 마지막으로 입력 중인 숫자(피연산자)만 통째로 삭제
+        private void CE_Button_Click(object sender, EventArgs e)
+        {
+            // 이미 결과가 나온 상태라면 전체 초기화와 동일하게 작동
+            if (TextBox_Input.Text.Contains("="))
+            {
+                C_Button_Click(sender, e);
+                return;
+            }
+
+            string op = GetCurrentOperator();
+
+            if (op == null)
+            {
+                // 연산자가 없다면 첫 번째 숫자 입력 중이므로 전체 삭제
+                TextBox_Input.Clear();
+            }
+            else
+            {
+                // 연산자가 있다면 수식을 분리해서 앞부분과 연산자만 남김
+                // 예: "12 + 100" -> "12 + "
+                string[] parts = TextBox_Input.Text.Split(new string[] { op }, StringSplitOptions.None);
+                TextBox_Input.Text = parts[0] + op;
+            }
+        }
+        
+        private void del_Button_Click(object sender, EventArgs e)
+        {
+            if (TextBox_Input.Text.Contains("="))
+            {
+                C_Button_Click(sender, e);
+                return;
+            }
+
+            if (TextBox_Input.Text.Length > 0)
+            {
+                string currentText = TextBox_Input.Text;
+
+                if (currentText.EndsWith(" "))
+                {
+                    TextBox_Input.Text = currentText.Substring(0, currentText.Length - 3);
+                }
+                else
+                {
+                    TextBox_Input.Text = currentText.Substring(0, currentText.Length - 1);
+                }
+            }
+        }
     }
 }
